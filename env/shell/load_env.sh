@@ -19,6 +19,8 @@ function on_load() {
 # automatically load the env variables into the shell
 on_load
 
+# if script is called from the command line, execute 
+# any arguments passed to it
 AS=$(ps -o stat= -p $$)
 if [[ $AS == 'Ss' ]]; then
   $@
