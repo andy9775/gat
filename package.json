@@ -1,11 +1,14 @@
 {
-  "name": "gat",
-  "version": "0.0.1",
+  "name": "@andy9775/gat",
+  "version": "0.0.1-pre",
   "description": "Helper scripts for GitHub Actions",
   "main": "index.js",
-  "repository": "git@github.com:andy9775/gat.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andy9775/gat.git"
+  },
   "author": "Andy Chrzaszcz <andy9775@gmail.com>",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "private": false,
   "devDependencies": {
     "@types/jest": "^23.3.10",
@@ -16,6 +19,9 @@
     "typescript": "^3.2.2"
   },
   "scripts": {
-    "test": "./node_modules/jest-cli/bin/jest.js --runInBand"
+    "test": "./node_modules/jest-cli/bin/jest.js --runInBand",
+    "build": "./node_modules/typescript/bin/tsc && node ./actions/npm-publish/index.js",
+    "prepublish": "npm build",
+    "bump": "npm version patch -m \"Bumping to %s\""
   }
 }
