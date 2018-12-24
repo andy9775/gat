@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ENV_PATH=${GAT_ENV_PATH:-$HOME}
 # specify the environment variable file
@@ -13,6 +13,7 @@ function genv(){
       do
         if [[ $line ]]; then
           remainder="$line"
+          _export="${remainder%% *}"; remainder="${remainder#* }"
           key="${remainder%%=*}"; remainder="${remainder#*=}"
           value="${remainder%%=*}"; remainder="${remainder#*=}"
           if [[ $key == $1 ]]; then
@@ -22,6 +23,7 @@ function genv(){
       done < $ENV_SOURCE
     fi
   fi
+  # Return last set value
   echo $_RESULT
 }
 genv $1

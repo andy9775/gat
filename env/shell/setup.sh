@@ -1,8 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+set -e
+
+# pass through the root directory that the env shell scripts have been placed in
+# default to the working directory
+ROOT_DIR=${1:-"$(pwd)"}
 
 # setup the env functions
-mv ./genv.sh /bin/genv # get env value
-mv ./senv.sh /bin/senv # set env value
-mv ./load_env.sh /bin/load_env # autoload env value into session
-
-load_env
+# get env value
+mv "${ROOT_DIR}/genv.sh" /bin/genv 
+# set env value
+mv "${ROOT_DIR}/senv.sh" /bin/senv 
+# autoload env value into session
+mv "${ROOT_DIR}/load_env.sh" /bin/load_env 

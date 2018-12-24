@@ -18,4 +18,7 @@ COPY --from=gat /gat/env/shell /env
 RUN /env/setup.sh
 # ================= continue action =================
 # ...
+
+# execute entrypoint.sh with available env variables
+ENTRYPOINT [ "load_env", "/entrypoint.sh" ]
 ```
