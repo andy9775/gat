@@ -1,0 +1,21 @@
+{
+  "name": "gat",
+  "version": "0.0.1",
+  "description": "Helper scripts for GitHub Actions",
+  "main": "index.js",
+  "repository": "git@github.com:andy9775/gat.git",
+  "author": "Andy Chrzaszcz <andy9775@gmail.com>",
+  "license": "Apache 2.0",
+  "private": false,
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "@types/node": "^10.12.18",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.2"
+  },
+  "scripts": {
+    "test": "./node_modules/jest-cli/bin/jest.js --runInBand"
+  }
+}
