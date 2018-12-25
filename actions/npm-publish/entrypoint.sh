@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
 
 cd $GITHUB_WORKSPACE
-yarn publish --access public
+node /index.js
+yarn publish --non-interactive --access public

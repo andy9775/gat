@@ -10,4 +10,5 @@ LABEL "com.github.actions.name"="npm-publish"
 LABEL "com.github.actions.description"="This action publishes the npm module"
 
 ADD entrypoint.sh /entrypoint.sh
+ADD index.js  /index.js
 ENTRYPOINT [ "/entrypoint.sh" ]
