@@ -11,9 +11,15 @@ action "dockerize" {
 workflow "Publish to npm" {
   on = "push"
   resolve = ["publish"]
+  resolves = ["pub"]
 }
 
 action "publish" {
+  uses = "./actions/npm-publish"
+  secrets = ["NPM_TOKEN"]
+}
+
+action "pub" {
   uses = "./actions/npm-publish"
   secrets = ["NPM_TOKEN"]
 }
