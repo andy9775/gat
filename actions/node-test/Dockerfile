@@ -9,5 +9,5 @@ LABEL "com.github.actions.color"="gray-dark"
 LABEL "com.github.actions.name"="npm-publish"
 LABEL "com.github.actions.description"="This action publishes the npm module"
 
-# cwd defaults to github workspace (root of source code)
-ENTRYPOINT [ "yarn test" ]
+ADD entrypoint.sh /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
