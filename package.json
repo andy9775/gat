@@ -21,7 +21,6 @@
   "scripts": {
     "test": "./node_modules/jest-cli/bin/jest.js --runInBand",
     "build": "./node_modules/typescript/bin/tsc && node ./actions/npm-publish/index.js",
-    "prepublish": "npm build",
-    "bump": "npm version patch -m \"Bumping to %s\""
+    "prepublish": "npm build"
   }
 }
