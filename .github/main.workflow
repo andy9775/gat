@@ -16,7 +16,7 @@ workflow "Publish to npm" {
 }
 
 action "node-test" {
-  uses = "./actions/test"
+  uses = "./actions/node-test"
 }
 
 action "publish" {
