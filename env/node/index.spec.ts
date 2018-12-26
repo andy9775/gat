@@ -62,7 +62,7 @@ describe('Test getting env variables', () => {
   });
 });
 
-describe('Test getting env variables', () => {
+describe('Test setting env variables', () => {
   let gat = require('./');
   beforeEach(() => {
     const GAT_ENV_DIR = os.tmpdir();
