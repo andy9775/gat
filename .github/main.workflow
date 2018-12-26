@@ -1,16 +1,11 @@
-workflow "Build Docker Image" {
+workflow "Build" {
   on = "push"
-  resolves = ["dockerize"]
+  resolves = ["dockerize", "publish"]
 }
 
 action "dockerize" {
   uses = "./actions/dockerize"
   secrets = ["DOCKER_USERNAME", "DOCKER_PASSWORD", "DOCKER_REGISTRY_URL"]
-}
-
-workflow "Publish to npm" {
-  on = "push"
-  resolves = ["publish"]
 }
 
 action "publish" {
