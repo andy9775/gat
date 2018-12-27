@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # login, build and push the docker image
 set -e
 
