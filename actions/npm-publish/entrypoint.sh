@@ -1,12 +1,22 @@
 #!/bin/bash
 
-# source: https://github.com/actions/npm
-NPM_CONFIG_USERCONFIG="$HOME/.npmrc"
-NPM_REGISTRY_URL="registry.npmjs.org"
+if [[ $GITHUB_EVENT_NAME == "release" ]]; then
 
-printf "//$NPM_REGISTRY_URL/:_authToken=$NPM_TOKEN\nregistry=$NPM_REGISTRY_URL" > "$NPM_CONFIG_USERCONFIG"
-chmod 0600 "$NPM_CONFIG_USERCONFIG"
+  # ====================================== config ======================================
+  # source: https://github.com/actions/npm
+  NPM_CONFIG_USERCONFIG="$HOME/.npmrc"
+  NPM_REGISTRY_URL="registry.npmjs.org"
 
-cd $GITHUB_WORKSPACE
-node /index.js
-npm publish --access public
+  printf "//$NPM_REGISTRY_URL/:_authToken=$NPM_TOKEN\nregistry=$NPM_REGISTRY_URL" > "$NPM_CONFIG_USERCONFIG"
+  chmod 0600 "$NPM_CONFIG_USERCONFIG"
+
+  # ====================================== publish ======================================
+  VERSION=${GITHUB_REF##*/v}
+  
+  cd $GITHUB_WORKSPACE
+  echo "publishing version $VERSION"
+  npm version $VERSION
+  # create root index.js file
+  node $GITHUB_WORKSPACE/actions/npm-publish/index.js
+  npm publish --access public
+fi

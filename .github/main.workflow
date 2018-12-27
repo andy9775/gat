@@ -1,5 +1,5 @@
 workflow "Build Docker Image" {
-  on = "push"
+  on = "release"
   resolves = ["dockerize"]
 }
 
@@ -9,7 +9,7 @@ action "dockerize" {
 }
 
 workflow "Publish to npm" {
-  on = "push"
+  on = "release"
   resolves = [
     "publish",
   ]
