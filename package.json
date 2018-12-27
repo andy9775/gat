@@ -1,6 +1,5 @@
 {
   "name": "@andy9775/gat",
-  "version": "0.0.1-pre",
   "description": "Helper scripts for GitHub Actions",
   "main": "index.js",
   "repository": {
