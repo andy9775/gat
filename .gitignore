@@ -88,4 +88,4 @@ typings/
 
 # typescript
 *.js
-!/actions/npm-publish/index.js
+!build.js

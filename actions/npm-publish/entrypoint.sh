@@ -13,12 +13,15 @@ if [[ $GITHUB_EVENT_NAME == "release" ]]; then
   # ====================================== publish ======================================
   VERSION=${GITHUB_REF##*/v}
 
-  npm config set git-tag-version false
-
   cd $GITHUB_WORKSPACE
   echo "publishing version $VERSION"
+
+  yarn install
+  yarn build
+
+  # yarn has bugs publishing without interactions
+  # don't create a git tag
+  npm config set git-tag-version false
   npm version $VERSION
-  # create root index.js file
-  node $GITHUB_WORKSPACE/actions/npm-publish/index.js
   npm publish --access public
 fi
