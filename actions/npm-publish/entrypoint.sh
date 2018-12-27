@@ -25,4 +25,7 @@ if [[ $GITHUB_EVENT_NAME == "release" ]]; then
   npm config set git-tag-version false
   npm version $VERSION
   npm publish --access public
+else
+  echo "not a relese"
+  exit 1
 fi
